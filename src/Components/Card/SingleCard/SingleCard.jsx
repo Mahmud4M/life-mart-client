@@ -3,8 +3,6 @@ import img from "../../../assets/Banner/Five.jpg"
 
 const SingleCard = ({ product }) => {
 
-    console.log(product);
-
     const { id, productName, brand, productImage, description, price, category, ratings, productCreationDate } = product;
 
 

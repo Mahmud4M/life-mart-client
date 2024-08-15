@@ -1,18 +1,54 @@
 import { useEffect, useState } from "react";
 import SingleCard from "../Card/SingleCard/SingleCard";
 import { FaProductHunt } from "react-icons/fa";
+import axios from "axios";
 
 
 
 const Product = () => {
 
     const [products, setProducts] = useState();
+    const [currentPage, setCurrentPage] = useState();
+    const [itemperpage, setItemperpage] = useState(5);
+    const [count, setCount] = useState(1);
+
 
     useEffect(() => {
-        fetch("/data.json")
-            .then(response => response.json())
-            .then(data => setProducts(data));
+        const productData = async () => {
+            try {
+                const result = await axios.get(`http://localhost:5000/products-data?page=${currentPage}&size=${itemperpage}`);
+                setProducts(result.data)
+            } catch (error) {
+                console.log(error.message);
+            }
+        };
+        productData();
+    }, [currentPage, itemperpage])
+
+
+    // Fecth count-number data
+    useEffect(() => {
+        const count = async () => {
+            try {
+                const count = await axios.get('http://localhost:5000/product-count');
+                setCount(count.data.count)
+            } catch (error) {
+                console.log(error.message);
+            }
+        };
+        count();
     }, [])
+
+    // Handle Pagination Button
+    const handlePaginationButton = (value) => {
+        setCurrentPage(value);
+    }
+
+
+    // Select Pagination Calculation
+    const numberofPages = Math.ceil(count / itemperpage);
+    const pages = [...Array(numberofPages).keys()].map(element => element + 1);
+
 
     return (
         <>
@@ -33,7 +69,7 @@ const Product = () => {
             {/* Paginaton */}
             <div>
                 <div className="flex items-center justify-center mx-auto mt-10">
-                    <button className="px-4 py-2 mx-1 text-white transition-colors duration-300 transform bg-[#0f503c] rounded-md dark:bg-gray-800 dark:text-white hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
+                    <button onClick={() => handlePaginationButton(currentPage - 1)} className="px-4 $ py-2 mx-1 text-white transition-colors duration-300 transform bg-[#0f503c] rounded-md dark:bg-gray-800 dark:text-white hover:bg-yellow-600 hover:text-white dark:hover:text-gray-200">
                         <div className="flex items-center -mx-1">
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-1 rtl:-scale-x-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path d="M7 16l-4-4m0 0l4-4m-4 4h18" />
@@ -45,27 +81,19 @@ const Product = () => {
                         </div>
                     </button>
 
-                    <a href="#" className="hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
-                        1
-                    </a>
 
-                    <a href="#" className="hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
-                        2
-                    </a>
+                    {
+                        pages.map(btnNum => <button
+                            onClick={() => handlePaginationButton(btnNum)}
+                            key={btnNum}
+                            href="#"
+                            className={`hidden ${currentPage === btnNum ? 'bg-yellow-600 text-white' : ''} px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-yellow-600 dark:hover:bg-yellow-600 hover:text-white dark:hover:text-gray-200`}>
+                            {btnNum}
+                        </button>)
+                    }
 
-                    <a href="#" className="hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
-                        3
-                    </a>
 
-                    <a href="#" className="hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
-                        4
-                    </a>
-
-                    <a href="#" className="hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:inline dark:bg-gray-800 dark:text-gray-200 hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
-                        5
-                    </a>
-
-                    <button className="px-4 py-2 mx-1 text-white transition-colors duration-300 transform bg-[#0f503c] rounded-md dark:bg-gray-800 dark:text-white hover:bg-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:text-gray-200">
+                    <button onClick={() => handlePaginationButton(currentPage + 1)} className="px-4 py-2 mx-1 text-white transition-colors duration-300 transform bg-[#0f503c] rounded-md dark:bg-gray-800 dark:text-white hover:bg-yellow-600 dark:hover:bg-yellow-600 hover:text-white dark:hover:text-gray-200">
                         <div className="flex items-center -mx-1">
                             <span className="mx-1">
                                 Next
