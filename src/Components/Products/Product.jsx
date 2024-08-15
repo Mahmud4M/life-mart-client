@@ -16,19 +16,19 @@ const Product = () => {
     const [filter, setFilter] = useState('');
     const [sort, setSort] = useState('');
     const [sortPrice, setSortPrice] = useState('');
-
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
         const productData = async () => {
             try {
-                const result = await axios.get(`http://localhost:5000/products-data?page=${currentPage}&size=${itemperpage}&filter=${filter}&sort=${sort}&sortPrice=${sortPrice}`);
+                const result = await axios.get(`http://localhost:5000/products-data?page=${currentPage}&size=${itemperpage}&filter=${filter}&sort=${sort}&sortPrice=${sortPrice}&search=${search}`);
                 setProducts(result.data)
             } catch (error) {
                 console.log(error.message);
             }
         };
         productData();
-    }, [currentPage, sort, filter, itemperpage, sortPrice])
+    }, [currentPage, sort, filter, itemperpage, sortPrice, search])
 
 
     // Fecth count-number data
@@ -53,6 +53,13 @@ const Product = () => {
     // Select Pagination Calculation
     const numberofPages = Math.ceil(count / itemperpage);
     const pages = [...Array(numberofPages).keys()].map(element => element + 1);
+
+
+    const handleSearch = e => {
+        e.preventDefault();
+        const search = e.target.search.value;
+        setSearch(search)
+    }
 
 
     return (
@@ -115,9 +122,9 @@ const Product = () => {
                 </div>
 
                 <div>
-                    <form>
+                    <form onSubmit={handleSearch}>
                         <div className="flex flex-col p-1.5 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
-                            <input className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent" type="text" name="email" placeholder="Enter your product name ..." aria-label="Enter your product name ..." />
+                            <input name="search" className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent" type="text" placeholder="Enter your product name ..." aria-label="Enter your product name ..." />
 
                             <button className="px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 hover:bg-gray-600 focus:bg-gray-600 focus:outline-none"><FaSearch className="text-white text-xl" /></button>
                         </div>
