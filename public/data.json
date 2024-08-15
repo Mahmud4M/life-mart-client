@@ -1,0 +1,167 @@
+[
+    {
+        "id": 1,
+        "productName": "Wireless Headphones",
+        "brand": "SoundMagic",
+        "productImage": "https://example.com/images/headphones.jpg",
+        "description": "High-quality wireless headphones with noise cancellation.",
+        "price": 79.99,
+        "category": "Electronics",
+        "ratings": 4.5,
+        "productCreationDate": "2024-08-15T10:00:00Z"
+    },
+    {
+        "id": 2,
+        "productName": "Smartphone",
+        "brand": "TechPro",
+        "productImage": "https://example.com/images/smartphone.jpg",
+        "description": "Latest smartphone with 128GB storage and dual cameras.",
+        "price": 599.99,
+        "category": "Electronics",
+        "ratings": 4.7,
+        "productCreationDate": "2024-08-14T09:30:00Z"
+    },
+    {
+        "id": 3,
+        "productName": "Gaming Laptop",
+        "brand": "GameMaster",
+        "productImage": "https://example.com/images/laptop.jpg",
+        "description": "Powerful gaming laptop with a 15.6-inch display and RTX 3060 GPU.",
+        "price": 1199.99,
+        "category": "Computers",
+        "ratings": 4.8,
+        "productCreationDate": "2024-08-13T14:45:00Z"
+    },
+    {
+        "id": 4,
+        "productName": "Smartwatch",
+        "brand": "HealthTrack",
+        "productImage": "https://example.com/images/smartwatch.jpg",
+        "description": "Waterproof smartwatch with fitness tracking and heart rate monitor.",
+        "price": 149.99,
+        "category": "Wearables",
+        "ratings": 4.3,
+        "productCreationDate": "2024-08-12T12:15:00Z"
+    },
+    {
+        "id": 5,
+        "productName": "Bluetooth Speaker",
+        "brand": "BassBoom",
+        "productImage": "https://example.com/images/speaker.jpg",
+        "description": "Portable Bluetooth speaker with deep bass and 12-hour battery life.",
+        "price": 49.99,
+        "category": "Electronics",
+        "ratings": 4.6,
+        "productCreationDate": "2024-08-11T11:00:00Z"
+    },
+    {
+        "id": 6,
+        "productName": "Vitamin C Tablets",
+        "brand": "HealthPlus",
+        "productImage": "https://example.com/images/vitamin_c.jpg",
+        "description": "1000mg Vitamin C tablets to boost immunity and improve skin health.",
+        "price": 14.99,
+        "category": "Health",
+        "ratings": 4.9,
+        "productCreationDate": "2024-08-10T08:20:00Z"
+    },
+    {
+        "id": 7,
+        "productName": "Organic Green Tea",
+        "brand": "Nature's Best",
+        "productImage": "https://example.com/images/green_tea.jpg",
+        "description": "Organic green tea leaves sourced from the Himalayas.",
+        "price": 9.99,
+        "category": "Food",
+        "ratings": 4.8,
+        "productCreationDate": "2024-08-09T07:40:00Z"
+    },
+    {
+        "id": 8,
+        "productName": "Face Mask (50 pcs)",
+        "brand": "SafeGuard",
+        "productImage": "https://example.com/images/face_mask.jpg",
+        "description": "Disposable face masks with 3-ply protection for daily use.",
+        "price": 19.99,
+        "category": "Medical",
+        "ratings": 4.7,
+        "productCreationDate": "2024-08-08T15:30:00Z"
+    },
+    {
+        "id": 9,
+        "productName": "Running Shoes",
+        "brand": "SpeedRunner",
+        "productImage": "https://example.com/images/running_shoes.jpg",
+        "description": "Lightweight running shoes with excellent grip and comfort.",
+        "price": 89.99,
+        "category": "Clothing",
+        "ratings": 4.6,
+        "productCreationDate": "2024-08-07T14:20:00Z"
+    },
+    {
+        "id": 10,
+        "productName": "Organic Honey",
+        "brand": "HoneyFarm",
+        "productImage": "https://example.com/images/honey.jpg",
+        "description": "Pure organic honey harvested from wildflowers.",
+        "price": 12.99,
+        "category": "Food",
+        "ratings": 4.9,
+        "productCreationDate": "2024-08-06T13:10:00Z"
+    },
+    {
+        "id": 11,
+        "productName": "Digital Thermometer",
+        "brand": "MediCheck",
+        "productImage": "https://example.com/images/thermometer.jpg",
+        "description": "Accurate digital thermometer for quick and easy temperature readings.",
+        "price": 24.99,
+        "category": "Medical",
+        "ratings": 4.4,
+        "productCreationDate": "2024-08-05T12:00:00Z"
+    },
+    {
+        "id": 12,
+        "productName": "Yoga Mat",
+        "brand": "FlexiFit",
+        "productImage": "https://example.com/images/yoga_mat.jpg",
+        "description": "Eco-friendly yoga mat with non-slip surface and cushioning.",
+        "price": 39.99,
+        "category": "Health",
+        "ratings": 4.7,
+        "productCreationDate": "2024-08-04T10:50:00Z"
+    },
+    {
+        "id": 13,
+        "productName": "LED Monitor",
+        "brand": "ViewMax",
+        "productImage": "https://example.com/images/monitor.jpg",
+        "description": "27-inch LED monitor with full HD resolution and wide viewing angles.",
+        "price": 199.99,
+        "category": "Electronics",
+        "ratings": 4.5,
+        "productCreationDate": "2024-08-03T09:40:00Z"
+    },
+    {
+        "id": 14,
+        "productName": "Protein Bars (Pack of 12)",
+        "brand": "FitFuel",
+        "productImage": "https://example.com/images/protein_bars.jpg",
+        "description": "Delicious protein bars with 20g protein per serving, perfect for post-workout.",
+        "price": 29.99,
+        "category": "Health",
+        "ratings": 4.8,
+        "productCreationDate": "2024-08-02T08:30:00Z"
+    },
+    {
+        "id": 15,
+        "productName": "Winter Jacket",
+        "brand": "ColdShield",
+        "productImage": "https://example.com/images/jacket.jpg",
+        "description": "Insulated winter jacket with waterproof exterior and thermal lining.",
+        "price": 129.99,
+        "category": "Clothing",
+        "ratings": 4.6,
+        "productCreationDate": "2024-08-01T07:20:00Z"
+    }
+]
