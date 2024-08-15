@@ -1,9 +1,7 @@
 import { BsCart4 } from "react-icons/bs";
 import { FaChevronRight, FaRegHeart, FaSearch } from "react-icons/fa";
 import "./Navbar.css"
-import { Dropdown } from "flowbite-react";
 import { useState } from "react";
-import { FaRegCircleDot } from "react-icons/fa6";
 
 const Navbar = () => {
 
@@ -73,13 +71,6 @@ const Navbar = () => {
                             <a href="/">Contact</a>
                         </li>
                     </ul>
-                </div>
-                <div className="ml-60 transition-colors duration-700 hover:text-green-500">
-                    <Dropdown label="SORT BY PRICE / DATED" inline>
-                        <Dropdown.Item><div className="flex items-center gap-2"> <FaRegCircleDot className="text-yellow-600" /> Price High to Low</div></Dropdown.Item>
-                        <Dropdown.Item><div className="flex items-center gap-2"> <FaRegCircleDot className="text-yellow-600" /> Price Low to High</div></Dropdown.Item>
-                        <Dropdown.Item><div className="flex items-center gap-2"> <FaRegCircleDot className="text-yellow-600" /> Newest First</div></Dropdown.Item>
-                    </Dropdown>
                 </div>
             </div>
         </>

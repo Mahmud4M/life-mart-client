@@ -58,12 +58,9 @@ const Banner = () => {
                                 <li className="my-2"><hr /></li>
                                 <li className="flex items-center gap-2">
                                     <VscDebugBreakpointData className="text-yellow-600" />
-                                    <Dropdown label="Brand Name" inline>
-                                        <Dropdown.Item><div className="flex items-center gap-2"> <FaRegCircleDot className="text-yellow-600" /> One</div></Dropdown.Item>
-                                        <Dropdown.Item><div className="flex items-center gap-2"> <FaRegCircleDot className="text-yellow-600" /> Two</div></Dropdown.Item>
-                                        <Dropdown.Item><div className="flex items-center gap-2"> <FaRegCircleDot className="text-yellow-600" /> Three</div></Dropdown.Item>
-                                    </Dropdown>
+                                    <a href="#" className="hover:text-green-500 hover:duration-1000">1000 to 1500</a>
                                 </li>
+                                <li className="my-2"><hr /></li>
                             </ul>
                         </div>
                     </div>
