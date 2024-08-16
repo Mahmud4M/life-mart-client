@@ -6,13 +6,15 @@ const SingleCard = ({ product }) => {
     const { id, productName, brand, productImage, description, price, category, ratings, productCreationDate } = product;
 
 
+    console.log(productImage);
+
 
     return (
         <div>
             <Card
                 className="max-w-sm"
-                imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-                imgSrc={img}
+                imgAlt="Product Picture is loading..."
+                imgSrc={productImage}
                 title={productName}
             >
                 

@@ -24,7 +24,7 @@ const Product = () => {
         const productData = async () => {
             setIsLoading(true);
             try {
-                const result = await axios.get(`http://localhost:5000/products-data?page=${currentPage}&size=${itemperpage}&filter=${filter}&sort=${sort}&sortPrice=${sortPrice}&search=${search}&category=${category}`);
+                const result = await axios.get(`https://life-mart-server.vercel.app/products-data?page=${currentPage}&size=${itemperpage}&filter=${filter}&sort=${sort}&sortPrice=${sortPrice}&search=${search}&category=${category}`);
                 setProducts(result.data)
             } catch (error) {
                 console.log(error.message);
@@ -40,7 +40,7 @@ const Product = () => {
     useEffect(() => {
         const count = async () => {
             try {
-                const count = await axios.get(`http://localhost:5000/product-count?filter=${filter}&search=${search}`);
+                const count = await axios.get(`https://life-mart-server.vercel.app/product-count?filter=${filter}&search=${search}`);
                 setCount(count.data.count)
             } catch (error) {
                 console.log(error.message);
