@@ -1,20 +1,17 @@
-import { useState } from "react";
-import Rating from "react-rating";
+import { HashLoader } from "react-spinners";
+
 
 
 
 const Check = () => {
-    const [rating, setRating] = useState(3);
 
 
     return (
-        <div className='px-36 my-16'>
-            <h1>sjafkhusafsgvh</h1>
-            <Rating
-                style={{ maxWidth: 180 }}
-                value={rating}
-                onChange={setRating}
-            />
+        <div className="mt-20 flex justify-center items-center">
+            <HashLoader
+                color="#0f503c"
+                loading
+                size={150} />
         </div>
     );
 };

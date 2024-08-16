@@ -4,6 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import axios from "axios";
 import { AiFillProduct } from "react-icons/ai";
 import Category from './../../Pages/Category/Category';
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 
 
@@ -18,14 +19,18 @@ const Product = () => {
     const [sortPrice, setSortPrice] = useState('');
     const [search, setSearch] = useState('');
     const [category, setCategory] = useState('');
+    const [loading, setIsLoading] = useState();
 
     useEffect(() => {
         const productData = async () => {
+            setIsLoading(true);
             try {
                 const result = await axios.get(`http://localhost:5000/products-data?page=${currentPage}&size=${itemperpage}&filter=${filter}&sort=${sort}&sortPrice=${sortPrice}&search=${search}&category=${category}`);
                 setProducts(result.data)
             } catch (error) {
                 console.log(error.message);
+            } finally {
+                setIsLoading(false);  // Set loading state to false after the API call completes
             }
         };
         productData();
@@ -62,6 +67,8 @@ const Product = () => {
         setSearch(search)
     }
 
+
+    if (loading) return <LoadingSpinner />
 
     return (
         <>
