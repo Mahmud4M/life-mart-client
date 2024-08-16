@@ -1,0 +1,33 @@
+@media only screen and (min-width: 360px) and (max-width: 576px) {
+
+    .sort {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 15px;
+    }
+
+    .search {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .button {
+        padding: 10px 10px 10px 10px;
+        font-size: 14px;
+    }
+
+    .button-prev {
+        display: none;
+    }
+
+    .button-next {
+        display: none;
+    }
+
+
+}

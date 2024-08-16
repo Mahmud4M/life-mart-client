@@ -1,0 +1,36 @@
+@media only screen and (min-width: 360px) and (max-width: 576px) {
+
+    .banner {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .banner-item {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        flex-direction: column-reverse;
+        flex: 1;
+    }
+
+    .banner-head {
+        font-size: 15px;
+    }
+    .banner-cat-list {
+        font-size: 10px;
+    }
+
+    .banner-cat-one{
+        font-size: 12px;
+    }
+    .banner-cat-two{
+        font-size: 15px;
+    }
+
+    .carousel {
+        margin-top: -45px;
+        margin-bottom: -15px;
+        width: 18rem;
+        height: 18rem;
+    }
+}
