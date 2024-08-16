@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import SingleCard from "../Card/SingleCard/SingleCard";
-import { FaProductHunt, FaSearch } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import axios from "axios";
-import { Dropdown } from "flowbite-react";
-import { FaRegCircleDot } from "react-icons/fa6";
+import { AiFillProduct } from "react-icons/ai";
+import Category from './../../Pages/Category/Category';
 
 
 
@@ -17,32 +17,33 @@ const Product = () => {
     const [sort, setSort] = useState('');
     const [sortPrice, setSortPrice] = useState('');
     const [search, setSearch] = useState('');
+    const [category, setCategory] = useState('');
 
     useEffect(() => {
         const productData = async () => {
             try {
-                const result = await axios.get(`http://localhost:5000/products-data?page=${currentPage}&size=${itemperpage}&filter=${filter}&sort=${sort}&sortPrice=${sortPrice}&search=${search}`);
+                const result = await axios.get(`http://localhost:5000/products-data?page=${currentPage}&size=${itemperpage}&filter=${filter}&sort=${sort}&sortPrice=${sortPrice}&search=${search}&category=${category}`);
                 setProducts(result.data)
             } catch (error) {
                 console.log(error.message);
             }
         };
         productData();
-    }, [currentPage, sort, filter, itemperpage, sortPrice, search])
+    }, [currentPage, sort, filter, itemperpage, sortPrice, search, category])
 
 
     // Fecth count-number data
     useEffect(() => {
         const count = async () => {
             try {
-                const count = await axios.get(`http://localhost:5000/product-count?filter=${filter}`);
+                const count = await axios.get(`http://localhost:5000/product-count?filter=${filter}&search=${search}`);
                 setCount(count.data.count)
             } catch (error) {
                 console.log(error.message);
             }
         };
         count();
-    }, [filter])
+    }, [filter, search])
 
     // Handle Pagination Button
     const handlePaginationButton = (value) => {
@@ -64,12 +65,37 @@ const Product = () => {
 
     return (
         <>
+
             {/* Shop Header */}
-            <div className="flex justify-between items-center px-40 mt-10">
-                <div className="flex items-center gap-3 ">
-                    <FaProductHunt className="text-xl text-yellow-600" />
-                    <h1 className="text-2xl">All Products</h1>
+            <div>
+                <div className="flex items-center justify-center gap-3 mt-16">
+                    <AiFillProduct className="text-3xl text-[#0f503c] hover:text-yellow-600 hover:duration-1000]" />
+                    <h1 className="text-4xl font-semibold">Our Products</h1>
+                    <AiFillProduct className="text-3xl text-[#0f503c] hover:text-yellow-600 hover:duration-1000]" />
                 </div>
+            </div>
+
+            <div className="flex justify-between items-center px-40 mt-10">
+
+                <div className="flex items-center gap-2">
+                    <select
+                        onChange={e => {
+                            setCategory(e.target.value)
+                            setCurrentPage(1)
+                        }}
+                        value={category}
+                        name="category"
+                        id="category"
+                        className="border-black uppercase">
+                        <option>Filter By Category</option>
+                        <option value='Medical & Health'>Medical & Health</option>
+                        <option value='Reliable Cloth'>Reliable Cloth</option>
+                        <option value='Games Instruments'>Games Instruments</option>
+                        <option value='Electronix Update'>Electronix</option>
+                        <option value='All Type Food'>Foods</option>
+                    </select>
+                </div>
+
                 <div className="flex items-center gap-2">
                     <select
                         onChange={e => {
@@ -130,8 +156,6 @@ const Product = () => {
                         </div>
                     </form>
                 </div>
-
-
             </div>
 
             <div className="mt-3"><hr /></div>

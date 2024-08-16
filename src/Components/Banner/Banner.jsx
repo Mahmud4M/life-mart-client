@@ -1,4 +1,4 @@
-import { Carousel, Dropdown } from "flowbite-react";
+import { Carousel } from "flowbite-react";
 import { TbCategory } from "react-icons/tb";
 import { VscDebugBreakpointData } from "react-icons/vsc";
 
@@ -7,9 +7,18 @@ import Two from "../../assets/Banner/Two.jpg"
 import Three from "../../assets/Banner/Three.jpg"
 import Four from "../../assets/Banner/Four.jpg"
 import Five from "../../assets/Banner/Five.jpg"
-import { FaRegCircleDot } from "react-icons/fa6";
+import { FaBriefcaseMedical, FaLeaf } from "react-icons/fa";
+import { IoMdShirt } from "react-icons/io";
+import { RiComputerFill } from "react-icons/ri";
+import { AiFillGift } from "react-icons/ai";
+import { FaHeadphonesSimple } from "react-icons/fa6";
+import { MdSportsFootball } from "react-icons/md";
 
 const Banner = () => {
+
+
+
+
     return (
         <>
             <div className="px-36">
@@ -17,48 +26,56 @@ const Banner = () => {
                     <div>
                         <div className="flex items-center gap-3">
                             <TbCategory className="text-xl" />
-                            <h2 className="text-xl">All Categories</h2>
+                            <h2 className="text-xl">Top Categories</h2>
                         </div>
                         <div className="flex gap-2 mt-5">
                             <ul>
-                                <li className="flex items-center gap-2">
-                                    <VscDebugBreakpointData className="text-yellow-600" />
+                                <li
+                                    // onClick={() => handleMedical('Medical & Health')}
+                                    className="flex items-center gap-4">
+                                    <FaBriefcaseMedical className="" />
                                     <a href="#" className="hover:text-green-500 hover:duration-1000">Medical & Health</a>
                                 </li>
-                                <li className="my-2"><hr /></li>
-                                <li className="flex items-center gap-2">
-                                    <VscDebugBreakpointData className="text-yellow-600" />
-                                    <a href="#" className="hover:text-green-500 hover:duration-1000">All Type Food</a>
+                                <li
+                                    // onClick={() => handleMedical('medical')}
+                                    className="my-2"><hr /></li>
+                                <li className="flex items-center gap-3">
+                                    <IoMdShirt className="text-xl" />
+                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Fashion</a>
                                 </li>
                                 <li className="my-2"><hr /></li>
-                                <li className="flex items-center gap-2">
-                                    <VscDebugBreakpointData className="text-yellow-600" />
-                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Reliable Cloth</a>
+                                <li
+                                    className="flex items-center gap-4">
+                                    <FaLeaf className="" />
+                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Home Decoration</a>
                                 </li>
                                 <li className="my-2"><hr /></li>
-                                <li className="flex items-center gap-2">
-                                    <VscDebugBreakpointData className="text-yellow-600" />
-                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Games Instruments</a>
+                                <li
+                                    // onClick={() => handleMedical('medical')}
+                                    className="flex items-center gap-3">
+                                    <AiFillGift className="text-xl" />
+                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Gifts & Cards</a>
                                 </li>
                                 <li className="my-2"><hr /></li>
-                                <li className="flex items-center gap-2">
-                                    <VscDebugBreakpointData className="text-yellow-600" />
-                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Electronix Update</a>
+                                <li
+                                    // onClick={() => handleMedical('medical')}
+                                    className="flex items-center gap-3">
+                                    <RiComputerFill className="text-xl" />
+                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Electronics</a>
                                 </li>
                                 <li className="my-2"><hr /></li>
-                                <li className="flex items-center gap-2">
-                                    <VscDebugBreakpointData className="text-yellow-600" />
-                                    <a href="#" className="hover:text-green-500 hover:duration-1000">100 to 500</a>
+                                <li
+                                    // onClick={() => handleMedical('medical')}
+                                    className="flex items-center gap-3">
+                                    <FaHeadphonesSimple className="text-xl" />
+                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Headphones</a>
                                 </li>
                                 <li className="my-2"><hr /></li>
-                                <li className="flex items-center gap-2">
-                                    <VscDebugBreakpointData className="text-yellow-600" />
-                                    <a href="#" className="hover:text-green-500 hover:duration-1000">500 to 1000</a>
-                                </li>
-                                <li className="my-2"><hr /></li>
-                                <li className="flex items-center gap-2">
-                                    <VscDebugBreakpointData className="text-yellow-600" />
-                                    <a href="#" className="hover:text-green-500 hover:duration-1000">1000 to 1500</a>
+                                <li
+                                    // onClick={() => handleMedical('medical')}
+                                    className="flex items-center gap-3">
+                                    <MdSportsFootball className="text-xl" />
+                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Sports Items</a>
                                 </li>
                                 <li className="my-2"><hr /></li>
                             </ul>

@@ -13,6 +13,7 @@ const SingleCard = ({ product }) => {
                 className="max-w-sm"
                 imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
                 imgSrc={img}
+                title={productName}
             >
                 
                     <a href="#">
