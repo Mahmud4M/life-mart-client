@@ -15,3 +15,74 @@
     background-size: 100% 3px;
     background-position: 0 100%
 }
+
+
+
+@media only screen and (min-width: 360px) and (max-width: 576px) {
+
+    /* Nav One Start*/
+    .nav-one {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-item {
+        gap: 20px;
+    }
+
+    .sign-in {
+        font-size: 10px;
+    }
+
+    .heart {
+        width: 20px;
+        height: 20px;
+    }
+
+    .heart-notif {
+        width: 15px;
+        height: 15px;
+        top: -5px;
+        left: 10px;
+        font-size: 10px;
+    }
+
+    .cart {
+        width: 20px;
+        height: 20px;
+    }
+
+    .cart-notif {
+        width: 16px;
+        height: 16px;
+        top: -5px;
+        left: 10px;
+        font-size: 10px;
+    }
+
+    /* Nav Two Start */
+    .nav-two {
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 20px;
+    }
+
+    .nav-ul {
+        gap: 10px;
+    }
+
+    .nav-li {
+        font-size: 10px;
+    }
+
+    .nav-icon {
+        margin-top: 6.5px;
+        font-size: 12px;
+    }
+}

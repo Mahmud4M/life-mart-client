@@ -13,6 +13,7 @@ import { RiComputerFill } from "react-icons/ri";
 import { AiFillGift } from "react-icons/ai";
 import { FaHeadphonesSimple } from "react-icons/fa6";
 import { MdSportsFootball } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
 
@@ -34,48 +35,48 @@ const Banner = () => {
                                     // onClick={() => handleMedical('Medical & Health')}
                                     className="flex items-center gap-4">
                                     <FaBriefcaseMedical className="" />
-                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Medical & Health</a>
+                                    <Link to='/products' className="hover:text-green-500 hover:duration-1000">Medical & Health</Link>
                                 </li>
                                 <li
                                     // onClick={() => handleMedical('medical')}
                                     className="my-2"><hr /></li>
                                 <li className="flex items-center gap-3">
                                     <IoMdShirt className="text-xl" />
-                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Fashion</a>
+                                    <Link href="#" className="hover:text-green-500 hover:duration-1000">Fashion</Link>
                                 </li>
                                 <li className="my-2"><hr /></li>
                                 <li
                                     className="flex items-center gap-4">
                                     <FaLeaf className="" />
-                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Home Decoration</a>
+                                    <Link to='/products' className="hover:text-green-500 hover:duration-1000">Home Decoration</Link>
                                 </li>
                                 <li className="my-2"><hr /></li>
                                 <li
                                     // onClick={() => handleMedical('medical')}
                                     className="flex items-center gap-3">
                                     <AiFillGift className="text-xl" />
-                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Gifts & Cards</a>
+                                    <Link to='/products' className="hover:text-green-500 hover:duration-1000">Gifts & Cards</Link>
                                 </li>
                                 <li className="my-2"><hr /></li>
                                 <li
                                     // onClick={() => handleMedical('medical')}
                                     className="flex items-center gap-3">
                                     <RiComputerFill className="text-xl" />
-                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Electronics</a>
+                                    <Link to='/products' className="hover:text-green-500 hover:duration-1000">Electronics</Link>
                                 </li>
                                 <li className="my-2"><hr /></li>
                                 <li
                                     // onClick={() => handleMedical('medical')}
                                     className="flex items-center gap-3">
                                     <FaHeadphonesSimple className="text-xl" />
-                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Headphones</a>
+                                    <Link to='/products' className="hover:text-green-500 hover:duration-1000">Headphones</Link>
                                 </li>
                                 <li className="my-2"><hr /></li>
                                 <li
                                     // onClick={() => handleMedical('medical')}
                                     className="flex items-center gap-3">
                                     <MdSportsFootball className="text-xl" />
-                                    <a href="#" className="hover:text-green-500 hover:duration-1000">Sports Items</a>
+                                    <Link to='/products' className="hover:text-green-500 hover:duration-1000">Sports Items</Link>
                                 </li>
                                 <li className="my-2"><hr /></li>
                             </ul>
