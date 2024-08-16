@@ -1,20 +1,81 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import axios from "axios";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import login from '/login.jpg';
 import github from '/github.jpg';
 
 
-const Check = () => {
 
+const Signin = () => {
+
+    const { user, loading, signIn, signInWithGoogle } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate()
+    const page = location?.state ? location.state : '/';
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        const user = { email, password };
+        console.log(user)
+
+        // // SignIn
+        // try {
+        //     const result = await signIn(email, password)
+        //     const { data } = await axios.post(
+        //         'https://rectitude-meal-server.vercel.app/jwt',
+        //         { email: result?.user.email },
+        //         { withCredentials: true }
+        //     )
+        //     console.log(data)
+        //     if (result) {
+        //         navigate(page, { replace: true })
+        //         toast.success('User SignIn Successfully.')
+        //     }
+        //     event.target.reset();
+        // } catch (err) {
+        //     toast.error(err?.message)
+        // }
+
+
+    }
+
+    // GoogleL Login
+    const handleGoogleLogin = async () => {
+        try {
+            const result = await signInWithGoogle()
+            const { data } = await axios.post(
+                'https://rectitude-meal-server.vercel.app/jwt',
+                { email: result?.user.email },
+                { withCredentials: true }
+            )
+            console.log(data)
+            navigate(page, { replace: true })
+            toast.success('User SignIn Successfully.')
+
+        } catch (err) {
+            // console.log(err)
+            toast.error(err?.message)
+        }
+
+    }
+
+    // If have user then no one go in signIn sec
+    if (user || loading) return
 
     return (
         <>
-           <section className="flex w-full items-center max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl mt-10 px-10 py-10 gap-10">
+            <section className="flex w-full items-center max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl mt-10 px-10 py-10 gap-10">
                 <div className="hidden bg-cover lg:block lg:w-1/2">
                     <img src={login} className='rounded-xl' alt="" />
                 </div>
                 <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
                     <div className="flex justify-center mx-auto">
-                        <h1 className="w-1/3 pb-4 text-center text-yellow-400 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white text-3xl font-semibold font-roboto">SignIn</h1>
+                        <h1 className="w-1/3 pb-4 text-center text-[#0f503c] capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white text-4xl font-semibold font-roboto">SignIn</h1>
                     </div>
                     <p className="mt-3 text-xl text-center text-gray-600 dark:text-gray-200">
                         Welcome back!
@@ -56,14 +117,14 @@ const Check = () => {
                             <input id="loggingPassword" className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" name='password' type="password" />
                         </div>
                         <div className="mt-6">
-                            <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
+                            <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#0f503c] rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
                                 Sign In
                             </button>
                         </div>
                     </form>
                     <div className="flex items-center justify-between mt-4">
                         <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
-                        <Link to='/signup' className="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline">or sign up</Link>
+                        <Link to='/sign-up' className="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline">or sign up</Link>
                         <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
                     </div>
                 </div>
@@ -72,4 +133,4 @@ const Check = () => {
     );
 };
 
-export default Check;
+export default Signin;

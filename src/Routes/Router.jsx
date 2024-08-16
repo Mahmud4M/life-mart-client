@@ -6,6 +6,8 @@ import Home from "../Pages/Home/Home";
 import Check from "../Components/Check/Check";
 import Product from "../Components/Products/Product";
 import Category from "../Pages/Category/Category";
+import Signin from "../Components/Authentication/SignIn/Signin";
+import SignUp from "../Components/Authentication/SignUp/SignUp";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +32,8 @@ const router = createBrowserRouter([
             }
         ]
     },
+    { path: '/sign-up', element: <SignUp /> },
+    { path: '/sign-in', element: <Signin /> }
 ]);
 
 

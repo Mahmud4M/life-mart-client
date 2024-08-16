@@ -1,12 +1,11 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import { Card } from 'flowbite-react';
 import img from "../../../assets/Banner/Five.jpg"
 
 const SingleCard = ({ product }) => {
 
     const { id, productName, brand, productImage, description, price, category, ratings, productCreationDate } = product;
-
-
-    console.log(productImage);
 
 
     return (
