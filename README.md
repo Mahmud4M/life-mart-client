@@ -1,4 +1,10 @@
-# React + Vite
+# Life Mart
+
+
+** Live Link 01 : https://life-mart-client.web.app
+** Live Link 02 : https://life-mart-client.firebaseapp.com
+
+
 
 ** This is a Shopping type application . It is a user friendly application
 
