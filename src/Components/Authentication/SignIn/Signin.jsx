@@ -3,9 +3,10 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import login from '/login.jpg';
 import github from '/github.jpg';
-
+import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 
 
 const Signin = () => {
@@ -24,47 +25,32 @@ const Signin = () => {
         console.log(user)
 
         // // SignIn
-        // try {
-        //     const result = await signIn(email, password)
-        //     const { data } = await axios.post(
-        //         'https://rectitude-meal-server.vercel.app/jwt',
-        //         { email: result?.user.email },
-        //         { withCredentials: true }
-        //     )
-        //     console.log(data)
-        //     if (result) {
-        //         navigate(page, { replace: true })
-        //         toast.success('User SignIn Successfully.')
-        //     }
-        //     event.target.reset();
-        // } catch (err) {
-        //     toast.error(err?.message)
-        // }
-
-
+        try {
+            const result = await signIn(email, password)
+            if (result) {
+                navigate(page, { replace: true })
+                toast.success('User SignIn Successfully.')
+            }
+            event.target.reset();
+        } catch (err) {
+            toast.error(err?.message)
+        }
     }
 
     // GoogleL Login
     const handleGoogleLogin = async () => {
         try {
             const result = await signInWithGoogle()
-            const { data } = await axios.post(
-                'https://rectitude-meal-server.vercel.app/jwt',
-                { email: result?.user.email },
-                { withCredentials: true }
-            )
-            console.log(data)
             navigate(page, { replace: true })
             toast.success('User SignIn Successfully.')
-
         } catch (err) {
-            // console.log(err)
+            console.log(err.message)
             toast.error(err?.message)
         }
-
     }
 
     // If have user then no one go in signIn sec
+    if (loading) return <LoadingSpinner />
     if (user || loading) return
 
     return (

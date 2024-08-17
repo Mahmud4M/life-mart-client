@@ -2,9 +2,17 @@ import { BsCart4 } from "react-icons/bs";
 import { FaChevronRight, FaRegHeart } from "react-icons/fa";
 import "./Navbar.css"
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { useContext } from "react";
 
 const Navbar = () => {
 
+    const { user, logOut } = useContext(AuthContext);
+
+    //Sign Out
+    const signOut = () => {
+        return logOut
+    }
 
     return (
         <>
@@ -14,9 +22,31 @@ const Navbar = () => {
                 </div>
                 <div className="nav-item flex items-center gap-10">
                     <div className="sign-in">
-                        <Link><h1>Sign In / Register</h1></Link>
+                        {
+                            user ? <>
+                                <div className="dropdown dropdown-end">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img
+                                                alt="Tailwind CSS Navbar component"
+                                                src='/user.jpg' />
+                                        </div>
+                                    </div>
+                                    <ul
+                                        tabIndex={0}
+                                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow border border-yellow-600">
+                                        <li><Link className="text-black">Profile </Link> </li>
+                                        <li><Link onClick={signOut()} className="text-black">Logout</Link></li>
+                                    </ul>
+                                </div>
+                            </>
+                                :
+                                <>
+                                    <Link to='/sign-in'>Sign In</Link>
+                                    <Link className="ml-5" to='/sign-up'>Register</Link>
+                                </>
+                        }
                     </div>
-
                     <div className="relative">
                         <div><FaRegHeart className="heart w-9 h-9" /></div>
                         <div className="heart-notif bg-yellow-600 w-6 h-6 rounded-full text-white text-center absolute top-[-7px] left-[20px]">4</div>

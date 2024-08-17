@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
-import { GoogleAuthProvider } from "firebase/auth/web-extension";
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import app from "../Firebase/firebase.config";
 
+import { GoogleAuthProvider } from "firebase/auth";
+
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
-
+//Social auth
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
@@ -55,6 +56,8 @@ const AuthProvider = ({ children }) => {
 
 
     const authInfo = { createUser, signIn, signInWithGoogle, logOut, user, loading };
+
+    console.log(user);
 
     return (
         <AuthContext.Provider value={authInfo}>

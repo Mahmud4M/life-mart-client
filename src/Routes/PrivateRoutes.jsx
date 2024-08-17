@@ -5,8 +5,8 @@ import LoadingSpinner from '../Components/LoadingSpinner/LoadingSpinner';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const PrivateRoutes = ({ children }) => {
+    
     const { user, loading } = useContext(AuthContext);
-
     const location = useLocation()
 
     if (loading) {

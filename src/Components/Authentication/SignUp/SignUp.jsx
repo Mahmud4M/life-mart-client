@@ -3,11 +3,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import LoadingSpinner from "../../LoadingSpinner/LoadingSpinner";
 
 const SignUp = () => {
 
 
-    const { createUser } = useContext(AuthContext);
+    const { user, createUser, loading } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate()
     const page = location?.state ? location.state : '/';
@@ -22,33 +24,35 @@ const SignUp = () => {
         const conPassword = form.conPassword.value;
         const userData = { name, photo, email, password, conPassword }
 
-        console.log(userData);
+        console.log(user);
 
         // create user
         try {
             const result = await createUser(email, password)
-            // navigate(page, { replace: true })
+            navigate(page, { replace: true })
             toast.success('User Created Successfully.')
+            console.log(result);
         }
         catch (error) {
             toast.error(error?.message)
-            // event.target.reset();
+            console.log(error.message);
+            event.target.reset();
         }
 
 
         // Post user data in mongodb
-        // try {
-        //     const { data } = await axios.post('http://localhost:5000/users', userData)
-        //     if (data) {
-        //         toast.success('Users added Successfully.')
-        //         console.log(data)
-        //     }
-        // } catch (err) {
-        //     console.log(err)
-        // }
-
+        try {
+            const { data } = await axios.post('https://life-mart-server.vercel.app/user-data', userData)
+            if (data) {
+                toast.success('Users added Successfully.')
+                console.log(data)
+            }
+        } catch (err) {
+            console.log(err)
+        }
     }
 
+    if (loading) return <LoadingSpinner />
 
     return (
         <>
